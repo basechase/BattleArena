@@ -11,6 +11,9 @@ namespace BattleArena
     {
         private bool _gameOver = false;
 
+        Character player;
+        Character enemy;
+
         public virtual int GetInput(string desc, string option1, string option2)
         {
             ConsoleKeyInfo key;
@@ -56,6 +59,9 @@ namespace BattleArena
 
         public void Start()
         {
+            
+            player = new Character("player", 10, 10,5);
+            enemy = new Character("Enemy", 10, 9, 5);
            
            
             
@@ -67,8 +73,6 @@ namespace BattleArena
         public void Update()
         {
             
-            Character player = new Character("player", 10, 10,5);
-            Character enemy = new Character("Enemy", 10, 9, 5);
            
 
 
