@@ -13,7 +13,7 @@ namespace BattleArena
 
         Character player;
         Character enemy;
-
+        StephCurry steph;
         public virtual int GetInput(string desc, string option1, string option2)
         {
             ConsoleKeyInfo key;
@@ -60,9 +60,11 @@ namespace BattleArena
         public void Start()
         {
             
+
+
             player = new Character("player", 10, 10,5);
             enemy = new Character("Enemy", 10, 9, 5);
-           
+            steph = new StephCurry("Steph Curry", 10, 9, 5);
            
             
 
@@ -97,7 +99,11 @@ namespace BattleArena
                 Console.WriteLine();
                 enemy.PrintStats();
 
+                
+                damage = steph.Attack(player);
 
+
+                Console.WriteLine(steph.Name + " did " + damage + " damage to " + player.Name );
 
 
 

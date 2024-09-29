@@ -7,34 +7,14 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class StephCurry : Enemy
+    internal class StephCurry : Character
     {
-        private string _name = "StephCurry";
 
-       
-
-        private int _attackPower = 10;
-       
-
-      
-        public int AttackPower { get { return _attackPower; } }
-
-        public string Name { get { return _name; } }
-        
-
-        public StephCurry(string name) 
+        public StephCurry(string name, float maxHealth, float attackPower, float defensePower) : base(name, maxHealth, attackPower, defensePower)
         {
-            _name = name;
             
         }
 
 
-        public void Ball()
-        {
-            
-
-            Console.WriteLine("You just got balled on!");
-            
-        }
     }
 }

@@ -10,6 +10,7 @@ namespace BattleArena
 {
     internal class Enemy
     {
+        /*
         private int _health = 10;
         private int _attackPoints;
 
@@ -31,6 +32,7 @@ namespace BattleArena
         {
 
         }
+        */
 
 
     }

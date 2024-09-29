@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class Skeleton : Enemy
+    internal class Skeleton 
     {
         
     }
