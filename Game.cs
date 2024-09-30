@@ -11,8 +11,7 @@ namespace BattleArena
     {
         private bool _gameOver = false;
 
-        Character player;
-        Character enemy;
+        
         StephCurry steph;
         public virtual int GetInput(string desc, string option1, string option2)
         {
@@ -60,10 +59,6 @@ namespace BattleArena
         public void Start()
         {
             
-
-
-            player = new Character("player", 10, 10,5);
-            enemy = new Character("Enemy", 10, 9, 5);
             steph = new StephCurry("Steph Curry", 10, 9, 5);
            
             
@@ -74,10 +69,19 @@ namespace BattleArena
 
         public void Update()
         {
-            
-           
 
 
+
+
+            if (steph.Health == 0) 
+            {
+                _gameOver = true;
+            }
+
+
+            steph.PrintStats();
+
+            /*
 
             if (player.Health == 0 || enemy.Health == 0)
             {
@@ -105,9 +109,18 @@ namespace BattleArena
 
                 Console.WriteLine(steph.Name + " did " + damage + " damage to " + player.Name );
 
+                int input = GetInput("You are being attacked by" + steph.Name, "1: Dodge basketball", "2: Attack");
 
+                if (input == 1)
+                {
 
-            }
+                }
+                else if (input == 2)
+                {
+
+                }
+            */
+            
             
         }
 

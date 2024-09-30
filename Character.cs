@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class Character
+    abstract class Character
     {
         private string _name = "Character";
         private float _maxHealth = 10;
