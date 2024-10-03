@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
+
+    // this is a comment
     abstract class Character
     {
         private string _name = "Character";
