@@ -48,7 +48,7 @@ namespace BattleArena
             other.TakeDamage(damage);
             return damage;
         }
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
 
             

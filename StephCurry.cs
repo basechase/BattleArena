@@ -15,7 +15,7 @@ namespace BattleArena
         public StephCurry(string name, float maxHealth, float attackPower, float defensePower) : base(name, maxHealth, attackPower, defensePower)
         {
             
-           
+  s         
 
        
             
