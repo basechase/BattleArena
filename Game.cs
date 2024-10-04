@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BattleArena
 {
@@ -11,14 +12,18 @@ namespace BattleArena
     {
         private bool _gameOver = false;
 
-        
         StephCurry steph;
-        public virtual int GetInput(string desc, string option1, string option2)
+        Player player;
+        Oger shrek;
+        Skeleton bones;
+
+        //changed getinput, wouldnt intake integer 
+        public int GetInput(string desc, string option1, string option2)
         {
-            ConsoleKeyInfo key;
+            string input = "";
             int inputRecieved = 0;
 
-            while (inputRecieved != 1 || inputRecieved != 2)
+            while (inputRecieved != 1 && inputRecieved != 2)
             {
                 // Print Options'
                 Console.Clear();
@@ -28,14 +33,14 @@ namespace BattleArena
                 Console.WriteLine("> ");
 
                 // Get input from palyer
-                key = Console.ReadKey();
+                input = Console.ReadLine();
                 // if first option
-                if (key.KeyChar == '1')
+                if (input == "1")
                 {
                     // set input rcvd to one
                     inputRecieved = 1;
                 }
-                else if (key.KeyChar == '2')
+                else if (input == "2")
                 {
                     // otherwise if seocnd option
                     // set input rcvd to two
@@ -56,12 +61,20 @@ namespace BattleArena
             return inputRecieved;
         }
 
+        //override function for 3 inputs instead of two 
+
+
+       
+
+
+
+
         public void Start()
         {
-            
-            steph = new StephCurry("Steph Curry", 10, 9, 5);
-           
-            
+            player = new Player("Chuck Norris", 9, 10000, 100);
+            steph = new StephCurry("Steph Curry", 10, 9000, 5);
+            shrek = new Oger("Shrek", 5, 15, 5);
+            bones = new Skeleton("Bones", 1, 1, 1);
 
 
 
@@ -69,18 +82,52 @@ namespace BattleArena
 
         public void Update()
         {
+            int input;
 
 
 
-
-            if (steph.Health == 0) 
+            if (player.Health == 0) 
             {
                 _gameOver = true;
             }
-
-
+            
+            bones.PrintStats();
+            player.PrintStats();
+            shrek.PrintStats();
             steph.PrintStats();
 
+            Console.WriteLine("Press a key to start a battle");
+            Console.ReadKey();
+            
+
+           input = GetInput($"You are {player.Name} Who would you like to fight first?", shrek.Name, bones.Name);
+
+
+           if (input == 1)
+            {
+                player.Attack(shrek);
+                Console.WriteLine($"{bones.Name} is coming, {player.Name} attacks");
+                player.Attack(bones);
+            }
+           else if (input == 2)
+            {
+            Console.WriteLine($"Shrek is coming, {player.Name} attacks" );
+            player.Attack(shrek);
+                player.Attack(bones);
+            }
+
+
+            shrek.PrintStats();
+            bones.PrintStats();
+            Console.ReadKey();
+
+           
+
+            Console.WriteLine($"{steph.Name} is a real baller, he pounces on {player.Name}");
+            steph.Attack(player);
+            End();
+
+            // player.Attack(player); <<< this is funny 
             /*
 
             if (player.Health == 0 || enemy.Health == 0)

@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class Skeleton 
+    internal class Skeleton : Character
     {
-        
+        public Skeleton(string name, float maxHealth, float attackPower, float defensePower) : base(name, maxHealth, attackPower, defensePower)
+        {
+
+
+
+
+
+        }
+
+
     }
 }

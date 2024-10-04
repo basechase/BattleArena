@@ -15,7 +15,7 @@ namespace BattleArena
         public StephCurry(string name, float maxHealth, float attackPower, float defensePower) : base(name, maxHealth, attackPower, defensePower)
         {
             
-  s         
+          
 
        
             
@@ -24,7 +24,9 @@ namespace BattleArena
 
         public override void TakeDamage(float damage)
         {
-            Console.WriteLine(damage + "does nothing to a real baller!"); 
+            
+            Console.WriteLine("\n Steph is a real baller, you cannot defeat him" + damage + " does nothing");
+            
         }
 
 

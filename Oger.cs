@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class Oger 
+    internal class Oger : Character
     {
-       
+        public Oger(string name, float maxHealth, float attackPower, float defensePower) : base(name, maxHealth, attackPower, defensePower)
+        {
 
-       
 
-        
-       
+
+
+
+        }
+
+
+
+
+
 
 
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BattleArena
 {
 
-    // this is a comment
+    // est abstract class to make enemy/player classes
     abstract class Character
     {
         private string _name = "Character";
@@ -69,7 +69,8 @@ namespace BattleArena
 
         private void Die()
         {
-            Console.WriteLine(Name + "Has ded");
+            Console.WriteLine();
+            Console.WriteLine(Name + " Has ded");
         }
 
 
