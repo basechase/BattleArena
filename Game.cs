@@ -71,7 +71,7 @@ namespace BattleArena
 
         public void Start()
         {
-            player = new Player("Chuck Norris", 9, 10000, 100);
+            player = new Player("Chuck Norris", 9, 10000, 1);
             steph = new StephCurry("Steph Curry", 10, 9000, 5);
             shrek = new Oger("Shrek", 5, 15, 5);
             bones = new Skeleton("Bones", 1, 1, 1);
@@ -86,7 +86,7 @@ namespace BattleArena
 
 
 
-            if (player.Health == 0) 
+            if (player.Health <= 0) 
             {
                 _gameOver = true;
             }
@@ -125,7 +125,7 @@ namespace BattleArena
 
             Console.WriteLine($"{steph.Name} is a real baller, he pounces on {player.Name}");
             steph.Attack(player);
-            End();
+            
 
             // player.Attack(player); <<< this is funny 
             /*
