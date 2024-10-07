@@ -71,8 +71,10 @@ namespace BattleArena
 
         public void Start()
         {
-            player = new Player("Chuck Norris", 9, 10000, 1);
-            steph = new StephCurry("Steph Curry", 10, 9000, 5);
+            // buff chuck norris, hes old, didnt realize thats what the bug was in the first
+            //wtf is broken?
+            player = new Player("Chuck Norris", 9, 10, 1);
+            steph = new StephCurry("Steph Curry", 10, 9, 5);
             shrek = new Oger("Shrek", 5, 15, 5);
             bones = new Skeleton("Bones", 1, 1, 1);
 
@@ -86,7 +88,7 @@ namespace BattleArena
 
 
 
-            if (player.Health <= 0) 
+            if (player.Health <= 0 || bones.Health + shrek.Health + steph.Health <=0) 
             {
                 _gameOver = true;
             }
@@ -105,15 +107,15 @@ namespace BattleArena
 
            if (input == 1)
             {
-                player.Attack(shrek);
-                Console.WriteLine($"{bones.Name} is coming, {player.Name} attacks");
-                player.Attack(bones);
+             player.Attack(shrek);
+             Console.WriteLine($"{bones.Name} is coming, {player.Name} attacks");
+             player.Attack(bones);
             }
            else if (input == 2)
             {
             Console.WriteLine($"Shrek is coming, {player.Name} attacks" );
             player.Attack(shrek);
-                player.Attack(bones);
+            player.Attack(bones);
             }
 
 
