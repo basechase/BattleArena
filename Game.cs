@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -10,6 +11,15 @@ namespace BattleArena
 {
     internal class Game
     {
+
+        //enum to have player swap through rooms/stages of BattleArena
+        private enum Room
+        {
+            Start,
+            Room1,
+            Room2,
+            Room3,
+        }
         private bool _gameOver = false;
 
         StephCurry steph;
@@ -17,7 +27,7 @@ namespace BattleArena
         Oger shrek;
         Skeleton bones;
 
-        //changed getinput, wouldnt intake integer 
+        
         public int GetInput(string desc, string option1, string option2)
         {
             string input = "";
@@ -25,8 +35,8 @@ namespace BattleArena
 
             while (inputRecieved != 1 && inputRecieved != 2)
             {
-                // Print Options'
-                Console.Clear();
+                // Print Options
+                
                 Console.WriteLine(desc);
                 Console.WriteLine("1. " + option1);
                 Console.WriteLine("2. " + option2);
@@ -46,7 +56,6 @@ namespace BattleArena
                     // set input rcvd to two
                     inputRecieved = 2;
                 }
-
                 else
                 {
                     // else neither 
@@ -55,6 +64,7 @@ namespace BattleArena
                     Console.WriteLine("\nERROR ERROR INVALID INPUT");
                     Console.ReadKey();
                 }
+
 
             }
             Console.WriteLine();
@@ -84,19 +94,72 @@ namespace BattleArena
 
         public void Update()
         {
-            int input;
-
-
-
+            //set gameOver conditions
             if (player.Health <= 0 || bones.Health + shrek.Health + steph.Health <=0) 
             {
                 _gameOver = true;
             }
-            
+
+            // print player stats 
             bones.PrintStats();
             player.PrintStats();
             shrek.PrintStats();
             steph.PrintStats();
+
+
+
+
+            // est empty int variable for get input
+            int input;
+            Room room = Room.Start;
+
+            input = GetInput("You must pick a room to fight out of"," Room 1","Room 2");
+
+          if (input == 1)
+            {
+                room = Room.Room1;
+            }
+          else if (input == 2)
+            {
+                room = Room.Room2;
+            }
+
+            switch (room)
+            {
+                case Room.Room1:
+                    Console.WriteLine($"{player.Name} walks in and gets jumped by {steph.Name}");
+                    steph.Attack(player);
+                    break;
+                case Room.Room2:
+                    Console.WriteLine($"{bones.Name} is coming, you attack");
+                    player.Attack(bones);
+                    Console.WriteLine("Time for the next room");
+                    room = Room.Room1;
+                    break;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*
 
             Console.WriteLine("Press a key to start a battle");
             Console.ReadKey();
