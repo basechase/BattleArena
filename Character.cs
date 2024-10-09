@@ -35,7 +35,7 @@ namespace BattleArena
         public Character(string name, float maxHealth, float attackPower, float defensePower)
         {
             _name = name;
-            _maxHealth = maxHealth;
+             _maxHealth = maxHealth;
             _attackPower = attackPower;
             _defensePower = defensePower;
         }

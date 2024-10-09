@@ -73,8 +73,56 @@ namespace BattleArena
 
         //override function for 3 inputs instead of two 
 
+        public int GetInput(string desc, string option1, string option2, string option3)
+        {
+            string input = "";
+            int inputRecieved = 0;
 
-       
+            while (inputRecieved != 1 && inputRecieved != 2)
+            {
+                // Print Options
+
+                Console.WriteLine(desc);
+                Console.WriteLine("1. " + option1);
+                Console.WriteLine("2. " + option2);
+                Console.WriteLine("3. " + option3);                
+                Console.WriteLine("> ");
+
+                // Get input from palyer
+                input = Console.ReadLine();
+
+                // if first option
+                if (input == "1")
+                {
+                    // set input rcvd to one
+                    inputRecieved = 1;
+                }
+                else if (input == "2")
+                {
+                    // otherwise if seocnd option
+                    // set input rcvd to two
+                    inputRecieved = 2;
+                }
+                else if (input == "3")
+                {
+                    inputRecieved=3;
+                }
+                else
+                {
+                    // else neither 
+                    // display error msg
+
+                    Console.WriteLine("\nERROR ERROR INVALID INPUT");
+                    Console.ReadKey();
+                }
+
+
+            }
+            Console.Clear();
+            return inputRecieved;
+        }
+
+
 
 
 
@@ -83,9 +131,9 @@ namespace BattleArena
         {
             // buff chuck norris, hes old, didnt realize thats what the bug was in the first
             //wtf is broken?
-            player = new Player("Chuck Norris", 9, 10, 1);
-            steph = new StephCurry("Steph Curry", 10, 9, 5);
-            shrek = new Oger("Shrek", 5, 15, 5);
+            player = new Player("Chuck Norris", 10, 10, 1);
+            steph = new StephCurry("Steph Curry", 10, 120, 5);
+            shrek = new Oger("Shrek", 10, 10, 10);
             bones = new Skeleton("Bones", 1, 1, 1);
 
 
@@ -94,26 +142,20 @@ namespace BattleArena
 
         public void Update()
         {
-            //set gameOver conditions
-            if (player.Health <= 0 || bones.Health + shrek.Health + steph.Health <=0) 
-            {
-                _gameOver = true;
-            }
 
             // print player stats 
-            bones.PrintStats();
-            player.PrintStats();
-            shrek.PrintStats();
-            steph.PrintStats();
-
 
 
 
             // est empty int variable for get input
-            int input;
             Room room = Room.Start;
+            int input;
 
-            input = GetInput("You must pick a room to fight out of"," Room 1","Room 2");
+            bones.PrintStats();
+            player.PrintStats();
+            shrek.PrintStats();
+            steph.PrintStats();
+            input = GetInput("You must pick a room to fight out of","Room 1","Room 2", "Room 3");
 
           if (input == 1)
             {
@@ -123,9 +165,16 @@ namespace BattleArena
             {
                 room = Room.Room2;
             }
+          else if (input == 3)
+            {
+                room = Room.Room3;
+            }
 
             switch (room)
             {
+                case Room.Start:
+
+                    break;
                 case Room.Room1:
                     Console.WriteLine($"{player.Name} walks in and gets jumped by {steph.Name}");
                     steph.Attack(player);
@@ -136,12 +185,26 @@ namespace BattleArena
                     Console.WriteLine("Time for the next room");
                     room = Room.Room1;
                     break;
+                case Room.Room3:
+                    Console.WriteLine("Shrek is coming for you!");
+                    shrek.Attack(player);
+                    break;
+            }
+
+            //set gameOver conditions
+            if (player.Health <= 0 )
+            {
+                _gameOver = true;
+            }
+            else if (bones.Health + steph.Health + shrek.Health <= 0)
+            {
+                _gameOver = true;
+
             }
 
 
 
-
-
+            
 
 
 
