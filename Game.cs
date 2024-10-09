@@ -15,10 +15,11 @@ namespace BattleArena
         //enum to have player swap through rooms/stages of BattleArena
         private enum Room
         {
+
             Start,
-            Room1,
-            Room2,
-            Room3,
+            Room1 = 1,
+            Room2 = 2,
+            Room3 = 3,
         }
         private bool _gameOver = false;
 
