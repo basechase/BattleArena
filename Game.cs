@@ -157,6 +157,7 @@ namespace BattleArena
             shrek.PrintStats();
             steph.PrintStats();
             input = GetInput("You must pick a room to fight out of","Room 1","Room 2", "Room 3");
+            
 
           if (input == 1)
             {
@@ -174,23 +175,23 @@ namespace BattleArena
             switch (room)
             {
                 case Room.Start:
-
+                    
                     break;
                 case Room.Room1:
-                    Console.WriteLine($"{player.Name} walks in and gets jumped by {steph.Name}");
-                    steph.Attack(player);
+                    
                     break;
                 case Room.Room2:
-                    Console.WriteLine($"{bones.Name} is coming, you attack");
-                    player.Attack(bones);
-                    Console.WriteLine("Time for the next room");
-                    room = Room.Room1;
+                   
+                   
                     break;
                 case Room.Room3:
-                    Console.WriteLine("Shrek is coming for you!");
-                    shrek.Attack(player);
+                   
                     break;
             }
+
+
+
+
 
             //set gameOver conditions
             if (player.Health <= 0 )
