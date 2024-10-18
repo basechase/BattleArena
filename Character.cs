@@ -61,10 +61,8 @@ namespace BattleArena
         }
 
 
-        public void Heal(float health)
-        {
-            Health += health;
-        }
+        public abstract void Heal(float health);
+        
 
 
         private void Die()

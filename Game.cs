@@ -130,8 +130,8 @@ namespace BattleArena
 
         public void Start()
         {
-            // buff chuck norris, hes old, didnt realize thats what the bug was in the first
-            //wtf is broken?
+            // buff chuck norris, hes old
+            
             player = new Player("Chuck Norris", 10, 10, 1);
             steph = new StephCurry("Steph Curry", 10, 120, 5);
             shrek = new Oger("Shrek", 10, 10, 10);

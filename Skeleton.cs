@@ -17,6 +17,11 @@ namespace BattleArena
 
         }
 
+        public override void Heal(float health)
+        {
+          health += Health;
+        }
+
 
     }
 }
